@@ -12,7 +12,6 @@
 3.2. [Feed-Forward](#2-feed-forward)
 3.3. [Layer Normalization](#3-layer-normalization)
 3.4. [Verbindungen und Residualverbindungen](#4-verbindungen-und-residualverbindungen)
-</details>
 
 <br>
 
