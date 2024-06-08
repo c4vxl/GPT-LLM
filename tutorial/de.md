@@ -3,16 +3,16 @@
 ## Table of content
 1. [Tokenisierung](#1-tokenisierung)
 2. [Embedding](#2-embedding)
-2.1 [Token Embedding](#21-token-embedding)
-2.2 [Position Embedding](#22-position-embedding)
+1 [Token Embedding](#21-token-embedding)
+2 [Position Embedding](#22-position-embedding)
 3. [Transformer Blocks](#3-transformer-block)
-3.1 [Attention](#1-attention)
-3.1.1 [Single Head Attention](#11-single-head-attention)
-3.1.2 [Multi Head Attention](#12-multi-head-attention)
-3.2. [Feed-Forward](#2-feed-forward)
-3.3. [Layer Normalization](#3-layer-normalization)
-3.4. [Verbindungen und Residualverbindungen](#4-verbindungen-und-residualverbindungen)
-
+    1. [Attention](#1-attention)
+        1. [Single Head Attention](#11-single-head-attention)
+        2. [Multi Head Attention](#12-multi-head-attention)
+    2. [Feed-Forward](#2-feed-forward)
+    3. [Layer Normalization](#3-layer-normalization)
+    4. [Verbindungen und Residualverbindungen](#4-verbindungen-und-residualverbindungen)
+       
 <br>
 
 ---
