@@ -19,5 +19,5 @@ To use the model, follow these steps:
 
 
 This Program has been created for educational purposes. You can find a documentation on how a Large Language Model works in the `/tutorial/` folder.
-- [EN](en.md)
-- [DE](de.md)
+- [EN](tutorial/en.md)
+- [DE](tutorial/de.md)
