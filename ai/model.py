@@ -191,4 +191,32 @@ class Model(nn.Module):
         assert t <= self.args.block_size, f"Cannot forward sequence of length {t}, block size is only {self.args.block_size}"
         assert (idx >= 0).all() and (idx < self.args.vocab_size).all(), "Invalid indices in input"
 
-        token_embeddings = self.wte
+        token_embeddings = self.wte(idx)
+        position_ids = torch.arange(t, dtype=torch.long, device=idx.device).unsqueeze(0)
+        position_embeddings = self.wpe(position_ids)
+        x = token_embeddings + position_embeddings
+
+        for block in self.blocks:
+            x = block(x)
+
+        x = self.ln_f(x)
+        logits = self.h(x)
+        return logits
+
+    def export_to_file(self, path: str = "model.pth"):
+        # Save model to file
+        torch.save(self.state_dict(), path)
+
+    @staticmethod
+    def load_from_file(path: str = "model.pth", args: ModelArgs = ModelArgs()):
+        # Load model from file
+        if not os.path.isfile(path): 
+            return Model(args)
+
+        state_dict = torch.load(path, map_location=torch.device(args.device))
+        model = Model(args)
+
+        state_dict = {k: v for k, v in state_dict.items() if k in model.state_dict()}
+
+        model.load_state_dict(state_dict, strict=False)
+        return model
