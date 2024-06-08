@@ -17,3 +17,7 @@ To use the model, follow these steps:
 3. Train & finetune the model with a dataset from huggingface using the `finetune_mdl.py` script.
 4. Use the model ```python main.py```
 
+
+This Program has been created for educational purposes. You can find a documentation on how a Large Language Model works in the `/tutorial/` folder.
+- [EN](en.md)
+- [DE](de.md)
