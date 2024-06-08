@@ -3,8 +3,8 @@
 ## Table of content
 1. [Tokenisierung](#1-tokenisierung)
 2. [Embedding](#2-embedding)
-1 [Token Embedding](#21-token-embedding)
-2 [Position Embedding](#22-position-embedding)
+    1. [Token Embedding](#21-token-embedding)
+    2. [Position Embedding](#22-position-embedding)
 3. [Transformer Blocks](#3-transformer-block)
     1. [Attention](#1-attention)
         1. [Single Head Attention](#11-single-head-attention)
