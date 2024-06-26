@@ -1,4 +1,5 @@
 DATASET = "wikitext"
+DATASET_CONTEXT = "wikitext-103-raw-v1"
 
 import torch
 import torch.optim as optim
@@ -42,7 +43,7 @@ def tokenize_function(examples):
     return tokenizer(examples['text'], padding="max_length", truncation=True, max_length=block_size, return_tensors='pt')
 
 # load dataset
-dataset = load_dataset(DATASET, split='train', trust_remote_code=True)
+dataset = load_dataset(DATASET, DATASET_CONTEXT, split='train', trust_remote_code=True)
 dataloader = DataLoader(dataset, batch_size=12, shuffle=True)
 tokenized_datasets = dataset.map(tokenize_function, batched=True, remove_columns=["text"])
 
