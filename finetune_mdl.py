@@ -39,7 +39,7 @@ optimizer = optim.AdamW(model.parameters(), learning_rate)
 
 # Tokenize the dataset
 def tokenize_function(examples):
-    return tokenizer.at(examples['text'], padding="max_length", truncation=True, max_length=block_size, return_tensors='pt')
+    return tokenizer(examples['text'], padding="max_length", truncation=True, max_length=block_size, return_tensors='pt')
 
 # load dataset
 dataset = load_dataset(DATASET, split='train', trust_remote_code=True)
@@ -51,7 +51,7 @@ signal.signal(signal.SIGINT, end)
 
 # define collator to handle padding and create language modeling inputs
 data_collator = DataCollatorForLanguageModeling(
-    tokenizer=tokenizer.at,
+    tokenizer=tokenizer,
     mlm=False,  # Not using masked language modeling
 )
 
