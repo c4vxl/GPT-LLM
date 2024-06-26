@@ -3,9 +3,7 @@ from transformers import AutoTokenizer
 class Tokenizer(AutoTokenizer):
     def __init__(self, pretrained = None) -> None:
         self.from_pretrained(pretrained if pretrained is not None else "GPT2")
-        self.at = self.from_pretrained(pretrained if pretrained is not None else "GPT2")
-        self.at.pad_token = self.at.eos_token
-        self.vocab_size = self.at.vocab_size
+        self.pad_token = self.eos_token
     
     def encode(self, text: str):
         """
@@ -15,7 +13,7 @@ class Tokenizer(AutoTokenizer):
             text (str): Text to tokenize
         """
 
-        return self.at.encode(text)
+        return self.encode(text)
     
     def decode(self, tokens: list[int]):
         """
@@ -25,4 +23,4 @@ class Tokenizer(AutoTokenizer):
             tokens (list[int]): Tokens to textify
         """
 
-        return self.at.decode(tokens)
+        return self.decode(tokens)
